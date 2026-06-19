@@ -23,16 +23,16 @@ export default async function AdminPage() {
     <main className="admin-shell">
       <canvas id="auroraCanvas" aria-hidden="true" />
       <aside className="sidebar glass-panel">
-        <div className="brand">
+        <a className="brand brand-link" href="/admin">
           <div className="brand-mark">AS</div>
           <div>
             <strong>AuroraShip</strong>
             <span>Admin Console</span>
           </div>
-        </div>
+        </a>
         <nav className="nav-list" aria-label="管理员导航">
           <a className="nav-item active" href="/admin">客户与邀请码</a>
-          <a className="nav-item" href="/dashboard">查看客户台</a>
+          <a className="nav-item" href="/dashboard">进入打单工作台</a>
         </nav>
         <div className="sidebar-footer">
           <form className="logout-form" action="/api/auth/logout" method="post">

@@ -1,20 +1,22 @@
 import { requireSession } from "@/lib/auth";
 
 export default async function DashboardPage() {
-  const session = await requireSession("customer");
+  const session = await requireSession();
+  const isAdmin = session.role === "admin";
 
   return (
     <main className="page-shell">
       <canvas id="auroraCanvas" aria-hidden="true" />
       <aside className="sidebar glass-panel">
-        <div className="brand">
+        <a className="brand brand-link" href={isAdmin ? "/admin" : "/dashboard"}>
           <div className="brand-mark">AS</div>
           <div>
             <strong>AuroraShip</strong>
-            <span>US Label Console</span>
+            <span>{isAdmin ? "Admin Workspace" : "US Label Console"}</span>
           </div>
-        </div>
+        </a>
         <nav className="nav-list" aria-label="主导航">
+          {isAdmin ? <a className="nav-item" href="/admin">管理员后台</a> : null}
           <a className="nav-item active" href="#overview">总览</a>
           <a className="nav-item" href="#create">创建面单</a>
           <a className="nav-item" href="#shipments">订单记录</a>
@@ -37,7 +39,7 @@ export default async function DashboardPage() {
           <div className="top-actions">
             <div className="balance-chip">
               <span>当前账号</span>
-              <strong>{session.username}</strong>
+              <strong>{isAdmin ? `${session.username} / 管理员` : session.username}</strong>
             </div>
             <div className="balance-chip">
               <span>可用余额</span>

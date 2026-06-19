@@ -22,6 +22,11 @@
   line-height: 1.6;
 }
 
+.brand-link {
+  color: inherit;
+  text-decoration: none;
+}
+
 .auth-form {
   display: grid;
   gap: 14px;
