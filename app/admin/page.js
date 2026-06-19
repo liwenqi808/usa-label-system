@@ -78,7 +78,8 @@ export default async function AdminPage() {
               </div>
             </div>
             <div className="copy-block">
-              <textarea className="copy-text" readOnly value={invitationText} />
+              <textarea id="inviteCopyText" className="copy-text" readOnly value={invitationText} />
+              <button id="inviteCopyButton" className="primary-button" type="button">复制邀请文案</button>
               <p className="muted-text">复制这段发给客户即可。客户注册后会出现在下面的用户列表里。</p>
             </div>
           </article>
@@ -150,6 +151,7 @@ export default async function AdminPage() {
         </article>
       </section>
       <script src="/aurora.js" />
+      <script src="/admin.js" />
     </main>
   );
 }
