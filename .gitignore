@@ -6,3 +6,5 @@ git-meta-test/
 node_modules/
 .next/
 .env.local
+index.html
+app.js
