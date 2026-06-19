@@ -1,3 +1,8 @@
 .edge-profile/
 .tools/
 .local-git/
+.repo-git/
+git-meta-test/
+node_modules/
+.next/
+.env.local

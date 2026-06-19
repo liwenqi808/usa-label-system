@@ -1,0 +1,121 @@
+@import "../styles.css";
+
+.auth-shell {
+  display: grid;
+  min-height: 100vh;
+  min-width: 1240px;
+  place-items: center;
+  padding: 48px;
+}
+
+.auth-card {
+  width: 460px;
+  padding: 26px;
+}
+
+.auth-card h1 {
+  margin-bottom: 10px;
+}
+
+.auth-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.auth-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.auth-links {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+  color: var(--muted);
+}
+
+.auth-links a,
+.copy-block a {
+  color: var(--cyan);
+  text-decoration: none;
+}
+
+.alert {
+  border: 1px solid rgba(246, 199, 107, 0.32);
+  border-radius: var(--radius);
+  background: rgba(246, 199, 107, 0.12);
+  color: var(--amber);
+  padding: 10px 12px;
+}
+
+.admin-shell {
+  display: grid;
+  grid-template-columns: 252px minmax(0, 1fr);
+  gap: 18px;
+  width: min(1500px, calc(100% - 28px));
+  min-width: 1212px;
+  min-height: calc(100vh - 28px);
+  margin: 14px auto;
+}
+
+.admin-main {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 14px;
+}
+
+.admin-panel {
+  padding: 16px;
+}
+
+.admin-form {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.copy-block {
+  display: grid;
+  gap: 10px;
+}
+
+.copy-text {
+  min-height: 130px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+  padding: 12px;
+  resize: vertical;
+}
+
+.admin-table {
+  min-width: 760px;
+}
+
+.reset-form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reset-form input {
+  width: 170px;
+  min-height: 36px;
+}
+
+.logout-form {
+  margin: 0;
+}
+
+.muted-text {
+  color: var(--muted);
+}
