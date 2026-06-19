@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuroraShip Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <canvas id="auroraCanvas" aria-hidden="true"></canvas>
+  <div class="page-shell">
+    <aside class="sidebar glass-panel">
+      <div class="brand">
+        <div class="brand-mark">AS</div>
+        <div>
+          <strong>AuroraShip</strong>
+          <span>US Label Console</span>
+        </div>
+      </div>
+
+      <nav class="nav-list" aria-label="主导航">
+        <a class="nav-item active" href="#overview">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10Zm0 8h8v-6H3v6Zm10 0h8V11h-8v10Zm0-18v6h8V3h-8Z"/></svg>
+          <span>总览</span>
+        </a>
+        <a class="nav-item" href="#create">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6.5 12 2l9 4.5v11L12 22l-9-4.5v-11Zm9 5.1 6.6-3.3L12 5 5.4 8.3 12 11.6Zm-7 1.6v3.1l6 3v-5.2l-6-2.9Zm8 6.1 6-3v-3.1l-6 2.9v5.2Z"/></svg>
+          <span>创建面单</span>
+        </a>
+        <a class="nav-item" href="#shipments">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v3H4V4Zm1 5h14l-1.1 11H6.1L5 9Zm4 3v2h6v-2H9Z"/></svg>
+          <span>订单记录</span>
+        </a>
+        <a class="nav-item" href="#pricing">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4V5Zm3 3v2h10V8H7Zm0 4v2h6v-2H7Zm0 4v1h10v-1H7Z"/></svg>
+          <span>价格表</span>
+        </a>
+        <a class="nav-item" href="#wallet">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5A2.5 2.5 0 0 1 5.5 5H19a2 2 0 0 1 2 2v2h-4.5a4 4 0 0 0 0 8H21v2a2 2 0 0 1-2 2H5.5A2.5 2.5 0 0 1 3 18.5v-11Zm13.5 3.5H22v4h-5.5a2 2 0 0 1 0-4Z"/></svg>
+          <span>钱包</span>
+        </a>
+        <a class="nav-item" href="#clients">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm8.5 1a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7ZM2 20a6 6 0 0 1 12 0H2Zm12.6 0a7.8 7.8 0 0 0-2-4.9A5 5 0 0 1 22 20h-7.4Z"/></svg>
+          <span>客户管理</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="sync-card">
+          <span class="pulse-dot"></span>
+          <div>
+            <strong>领星 API</strong>
+            <span>沙盒连接正常</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar glass-panel">
+        <div>
+          <p class="eyebrow">Dashboard</p>
+          <h1>美国打单系统演示台</h1>
+        </div>
+        <div class="top-actions">
+          <div class="balance-chip">
+            <span>可用余额</span>
+            <strong>$8,420.60</strong>
+          </div>
+          <button class="icon-button" aria-label="通知">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22a2.4 2.4 0 0 0 2.3-1.7H9.7A2.4 2.4 0 0 0 12 22Zm7-6v1.5H5V16l1.6-1.8V10a5.4 5.4 0 0 1 4.2-5.3V3h2.4v1.7A5.4 5.4 0 0 1 17.4 10v4.2L19 16Z"/></svg>
+          </button>
+          <button class="primary-button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6V5Z"/></svg>
+            新建面单
+          </button>
+        </div>
+      </header>
+
+      <section class="metrics-grid" id="overview" aria-label="业务总览">
+        <article class="metric-card glass-panel">
+          <div class="metric-icon cyan">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h5l2 7 4-14 2 7h5v2h-6.5l-.4-1.4L10 22 6.5 14H3v-2Z"/></svg>
+          </div>
+          <span>今日面单</span>
+          <strong>284</strong>
+          <small>较昨日 +18.6%</small>
+        </article>
+        <article class="metric-card glass-panel">
+          <div class="metric-icon green">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v10H4V7Zm2 2v6h12V9H6Zm3 7h6v2H9v-2Z"/></svg>
+          </div>
+          <span>本月收入</span>
+          <strong>$42.8k</strong>
+          <small>Stripe 充值占 72%</small>
+        </article>
+        <article class="metric-card glass-panel">
+          <div class="metric-icon amber">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 2 20h20L12 2Zm1 14h-2v2h2v-2Zm0-7h-2v5h2V9Z"/></svg>
+          </div>
+          <span>待处理异常</span>
+          <strong>7</strong>
+          <small>地址校验 / 扣费回滚</small>
+        </article>
+        <article class="metric-card glass-panel">
+          <div class="metric-icon violet">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 6v6c0 5.2 3.4 8.5 8 10 4.6-1.5 8-4.8 8-10V6l-8-4Zm0 3.2 5 2.5V12c0 3.7-2.1 6-5 7.3C9.1 18 7 15.7 7 12V7.7l5-2.5Z"/></svg>
+          </div>
+          <span>活跃客户</span>
+          <strong>96</strong>
+          <small>12 个专属价格表</small>
+        </article>
+      </section>
+
+      <section class="main-grid">
+        <article class="label-panel glass-panel" id="create">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Create Label</p>
+              <h2>创建新面单</h2>
+            </div>
+            <div class="segmented-control" role="group" aria-label="承运商">
+              <button class="carrier-option active" data-carrier="FedEx">FedEx</button>
+              <button class="carrier-option" data-carrier="UPS">UPS</button>
+              <button class="carrier-option" data-carrier="USPS">USPS</button>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <label>
+              <span>客户</span>
+              <select id="customerSelect">
+                <option>Blue Harbor Trading</option>
+                <option>Northstar Auto Parts</option>
+                <option>Pacific Home Supply</option>
+              </select>
+            </label>
+            <label>
+              <span>服务</span>
+              <select id="serviceSelect">
+                <option>Ground Advantage</option>
+                <option>2Day Express</option>
+                <option>Priority Overnight</option>
+              </select>
+            </label>
+            <label>
+              <span>重量</span>
+              <div class="input-with-unit">
+                <input id="weightInput" type="number" min="1" max="150" value="12" />
+                <span>lb</span>
+              </div>
+            </label>
+            <label>
+              <span>包裹尺寸</span>
+              <input value="12 x 8 x 6 in" />
+            </label>
+            <label class="wide">
+              <span>发件地址</span>
+              <input value="185 Berry St, San Francisco, CA 94107" />
+            </label>
+            <label class="wide">
+              <span>收件地址</span>
+              <input value="228 Park Ave S, New York, NY 10003" />
+            </label>
+          </div>
+
+          <div class="quote-strip">
+            <div>
+              <span>预计扣费</span>
+              <strong id="quoteAmount">$14.82</strong>
+            </div>
+            <div>
+              <span>客户价格表</span>
+              <strong>VIP-West-A</strong>
+            </div>
+            <div>
+              <span>API 状态</span>
+              <strong class="good-text">Ready</strong>
+            </div>
+            <button class="primary-button compact">生成面单</button>
+          </div>
+        </article>
+
+        <aside class="label-preview glass-panel" aria-label="面单预览">
+          <div class="preview-top">
+            <span class="status-pill">Draft</span>
+            <span>4 x 6 Thermal</span>
+          </div>
+          <div class="label-paper">
+            <div class="barcode-lines">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <div>
+              <strong id="previewCarrier">FedEx</strong>
+              <p>TRK 7829 4410 9932</p>
+            </div>
+            <div class="label-route">
+              <span>SFO</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 5 20 12l-7 7v-4H4v-6h9V5Z"/></svg>
+              <span>NYC</span>
+            </div>
+            <div class="label-address">
+              <span>TO</span>
+              <strong>228 Park Ave S</strong>
+              <small>New York, NY 10003</small>
+            </div>
+          </div>
+          <button class="secondary-button full">下载 PDF 预览</button>
+        </aside>
+      </section>
+
+      <section class="lower-grid">
+        <article class="data-panel glass-panel" id="shipments">
+          <div class="section-heading tight">
+            <div>
+              <p class="eyebrow">Shipments</p>
+              <h2>最近面单</h2>
+            </div>
+            <button class="ghost-button">导出</button>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>订单号</th>
+                  <th>客户</th>
+                  <th>承运商</th>
+                  <th>状态</th>
+                  <th>扣费</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#LX-10482</td>
+                  <td>Blue Harbor</td>
+                  <td>FedEx Ground</td>
+                  <td><span class="status-pill good">已生成</span></td>
+                  <td>$14.82</td>
+                </tr>
+                <tr>
+                  <td>#LX-10481</td>
+                  <td>Northstar Auto</td>
+                  <td>UPS 2Day</td>
+                  <td><span class="status-pill">待支付</span></td>
+                  <td>$28.40</td>
+                </tr>
+                <tr>
+                  <td>#LX-10480</td>
+                  <td>Pacific Home</td>
+                  <td>USPS Priority</td>
+                  <td><span class="status-pill warn">需确认</span></td>
+                  <td>$9.76</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <article class="data-panel glass-panel" id="pricing">
+          <div class="section-heading tight">
+            <div>
+              <p class="eyebrow">Pricing</p>
+              <h2>客户价格表</h2>
+            </div>
+            <button class="ghost-button">编辑</button>
+          </div>
+          <div class="price-list">
+            <div class="price-row">
+              <span class="carrier-dot fedex"></span>
+              <div>
+                <strong>FedEx Ground</strong>
+                <small>Zone 2-5, 1-20 lb</small>
+              </div>
+              <b>成本 + 8%</b>
+            </div>
+            <div class="price-row">
+              <span class="carrier-dot ups"></span>
+              <div>
+                <strong>UPS 2Day</strong>
+                <small>Zone 2-8, 1-50 lb</small>
+              </div>
+              <b>成本 + $3.20</b>
+            </div>
+            <div class="price-row">
+              <span class="carrier-dot usps"></span>
+              <div>
+                <strong>USPS Priority</strong>
+                <small>Flat / Regional</small>
+              </div>
+              <b>阶梯价</b>
+            </div>
+          </div>
+        </article>
+
+        <article class="data-panel glass-panel wallet-panel" id="wallet">
+          <div class="section-heading tight">
+            <div>
+              <p class="eyebrow">Wallet</p>
+              <h2>钱包流水</h2>
+            </div>
+            <button class="ghost-button">充值</button>
+          </div>
+          <div class="wallet-stack">
+            <div class="wallet-row">
+              <span>Stripe 充值</span>
+              <strong class="good-text">+$500.00</strong>
+            </div>
+            <div class="wallet-row">
+              <span>面单扣费 #LX-10482</span>
+              <strong>-$14.82</strong>
+            </div>
+            <div class="wallet-row">
+              <span>管理员调账</span>
+              <strong class="good-text">+$120.00</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
